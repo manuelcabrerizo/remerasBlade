@@ -21,7 +21,8 @@ Route::get('fotbol', 'remerasController@listado');
 Route::get('faq', 'faqlController@mostarView');
 Route::get('contacto', 'contactoController@mostarView');
 Route::get('home', 'homeController@mostarView');
-
 Auth::routes();
-
+Route::get('perfil', 'perfilController@mostarView');
+Route::post('perfil', 'perfilController@save');
+Route::post('/perfil/update', 'perfilController@update');
 Route::get('/home', 'HomeController@index')->name('home');

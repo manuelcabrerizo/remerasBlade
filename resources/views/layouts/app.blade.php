@@ -71,10 +71,10 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('header')
+        @yield('header1')
+        @yield('content')
+        @yield('footer')
     </div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 body{
   background-color: #E0DFDE ;
 }
+
 header.cabeza{
   position: relative;
   display: none;
@@ -200,7 +201,6 @@ footer  ul.navbar li{
     list-style: none;
   }
 
-
 /* #E0DFDE*/
 
 
@@ -298,3 +298,7 @@ margin-left: 1%;
 
 
 }
+
+  main.py-4 {
+  padding: inherit;
+  }
