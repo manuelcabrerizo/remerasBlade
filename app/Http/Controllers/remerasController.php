@@ -9,8 +9,8 @@ use App\Remera;
 class remerasController extends Controller
 {
     public function listado(){
-      $remeras = Remera::all();
-      $vac = compact("remeras");
-      return view('remeras', $vac);
+      $productos = Remera::all();
+      $vac = compact("productos");
+      return view('home', $vac);
     }
 }

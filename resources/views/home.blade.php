@@ -23,13 +23,7 @@
                       <body>
 
                       <header class="cabeza">
-                        @php
-                          if(isset($_SESSION["logeado"])&& $_SESSION["logeado"] == true){
-                            echo "todo bien.";
-                          }else if((isset($_SESSION["logeado"])&& $_SESSION["logeado"] == false)) {
-                            echo "todo mal.";
-                          }
-                        @endphp
+
                           <img src="img/portada.JPG"  width="100%" height="200px;">
                               <nav class="navbar navbar-dark bg-dark">
                                 <ul class="nav">
@@ -65,7 +59,7 @@
                                           }?>
                                   </li>
 
-                                <li class="nav-item"> <a class="nav-link active" href="carrito.php"></a> </li>
+                                <li class="nav-item"> <a class="nav-link active" href="carrito"> su carrito</a> </li>
                                 <li><form class="" action="home.php" method="post">
                                   <input type="submit" name="reiniciar" value="reiniciar"class="btn btn-primary" >
                                 </form>  </li>
@@ -177,47 +171,38 @@
                               <button class="dropdown-item" type="button">Something else here</button>
                             </div>
                           </div>
-
-
-
-
-
                       </nav>
 
                       <section class="foto">
-
-
-                              <div class="card" >
-                              <img src="img/productos/1.jpg" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
-                              <img class="special" src="img/img-nuevo.png" alt="plato nuevo">
-                              <div class="card-body">
-                                <h5 class="card-title">1</h5>
-                                <h6 class="card-text">1</h6>
-                                <form class="" action="funciones.php" method="post">
-                                    <button type="submit" name="incrementar" value="1" class="btn btn-primary">ver mas</button>
-                                </form>
-                                <form action="home.php" class="carro" method="post" onSubmit="return enviado()">
-                                  <button type="submit" name="incrementar" value="1" class="btn btn-primary fas fa-cart-plus"></button>
-                                </form>
-                                <form action="home.php" class="eliminar" method="post">
-                                  <button type="submit" name="eliminar" value="1`" class="btn">eliminar</button>
-                                </form>
-                              </div>
-                              </div>
-
-
-
-
-
+                        @foreach ($productos as $producto)
+                          <div class="card" >
+                          <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
+                          <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
+                          <div class="card-body">
+                            <h5 class="card-title">{{$producto["nombre"]}}</h5>
+                            <h6 class="card-text">{{$producto["precio"]}}</h6>
+                            <form class="" action="funciones.php" method="post">
+                              {{csrf_field()}}
+                                <button type="submit" name="vermas" value="1" class="btn btn-primary">ver mas</button>
+                            </form>
+                            <form action="carrito" class="carro" method="post">
+                              {{csrf_field()}}
+                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-primary fas fa-cart-plus">carrito</button>
+                            </form>
+                          <!--  <form action="home.php" class="eliminar" method="post">
+                              <button type="submit" name="eliminar" value="1`" class="btn">eliminar</button>
+                            </form> -->
+                          </div>
+                        </div>
+                        @endforeach
                       </section>
                       </div>
                       </main>
                       </body>
-
-
                 {{-- </div> --}}
             {{-- </div> --}}
         {{-- </div> --}}
     {{-- </div> --}}
 {{-- </div> --}}
 @endsection
+@extends('footer')

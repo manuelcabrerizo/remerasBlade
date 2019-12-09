@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-
+use App\Remera;
+use App\Carrito;
 class HomeController extends Controller
 {
     /**
@@ -27,10 +28,36 @@ class HomeController extends Controller
     {
       $usuarioLogeado = Auth::user();
       if(isset($usuarioLogeado)){
+        $productos = Remera::all();
+        $vac2 = compact("productos");
         $vac = compact("usuarioLogeado");
-        return view('home', $vac);
+        return view('home', $vac, $vac2);
       }else {
-        return view('home');
+        $productos = Remera::all();
+        $vac2 = compact("productos");
+        return view('home', $vac2);
+      }
+    }
+
+    public function carritoView(){
+      $usuarioLogeado = Auth::user();
+      $productos = Remera::all();
+      $vac = compact("usuarioLogeado", "productos");
+      return view('carrito', $vac);
+    }
+
+    public function carritoAdd(Request $rec){
+      $usuarioLogeado = Auth::user();
+      $productos = Remera::all();
+      $carrito = new Carrito;
+      $vac = compact("usuarioLogeado", "productos");
+      foreach ($productos as $producto) {
+        if($producto->id == $rec["incrementar"]){
+          $carrito->user_id = $usuarioLogeado->id;
+          $carrito->producto_id = $producto->id;
+          $carrito->save();
+          return view('home', $vac);
+        }
       }
     }
 }

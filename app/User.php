@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function carrito(){
+      return $this->belongsToMany("app\Remera", "carrito","user_id",  "producto_id");
+    }
 }

@@ -1,3 +1,6 @@
+@extends('app')
+@extends('header')
+@section('main')
 <head>
   <link rel="stylesheet" href="{{asset('css/perfil.css')}}">
 </head>
@@ -35,22 +38,11 @@
               ?>
               <label for="nombre">email:</label>
               <h5><?php echo $usuarioLogeado->email."<br>"; ?></h5>
-                <h5>
-              <form class="" action="login" method="post">
+              <h5>
+                <a href="update" type="button">update</a><br>
+                <a href="mostrarCrear" type="button">Crear Producto</a><br>
+                <a href="misProductos" type="button">Mis Productos</a><br>
 
-                  <input type="submit" name="logout" value="logout" class="boton">
-
-              </form>
-              <form  action="/perfil/update" method="post">
-                {{csrf_field()}}
-                  <input type="submit" name="update" value="update">
-
-              </form>
-              <form  action="vender" method="post">
-
-                  <input type="submit" name="crearproducto" value="crear producto">
-
-              </form>
               </h5>
               <?php
 
@@ -91,3 +83,5 @@
 }
 ?>
 </body>
+@stop
+@extends('footer')

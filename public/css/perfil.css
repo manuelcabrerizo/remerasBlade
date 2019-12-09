@@ -36,11 +36,11 @@ nav.navbar.navbar-dark.bg-dark{
 }
 div.contenedor{
   width: 100%;
-  height: 800px;
+  
 }
 div.cuerpo{
   margin-bottom: 30px;
-  height: 760px;
+
   overflow: hidden;
 }
 div.logo{
@@ -85,7 +85,7 @@ p.coment2{
 
   }
   div.contenedor{
-    height: 880px;
+
   }
 }
 
@@ -111,7 +111,6 @@ p.coment2{
   }
   div.cuerpo{
     margin-bottom: 30px;
-    height: 560px;
   }
   p.coment2{
     border-bottom:;

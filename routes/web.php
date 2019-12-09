@@ -15,14 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('fotbol', 'remerasController@listado');
+
 
 
 Route::get('faq', 'faqlController@mostarView');
 Route::get('contacto', 'contactoController@mostarView');
-Route::get('home', 'homeController@mostarView');
+
 Auth::routes();
 Route::get('perfil', 'perfilController@mostarView');
 Route::post('perfil', 'perfilController@save');
-Route::post('/perfil/update', 'perfilController@update');
+Route::get('update', 'perfilController@update');
+Route::get('mostrarCrear', 'perfilController@mostrarCrear');
+Route::post('mostrarCrear', 'perfilController@saveProduct');
+Route::get('misProductos', 'perfilController@mostrarProductos');
+Route::post('misProductos', 'perfilController@controlarProducto');
+Route::post('modificarProducto', 'perfilController@modificarProducto');
+Route::get('editarProducto', 'perfilController@editarProducto');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('carrito', 'HomeController@carritoView');
+Route::post('carrito', 'HomeController@carritoAdd');
