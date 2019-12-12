@@ -14,15 +14,17 @@
       </div>
       <div class="cuerpo">
       <div class="compras">
+        <?php $hayProductos = false; ?>
       @foreach ($productos as $producto)
         <?php
         if($producto->user_id == $usuarioLogeado->id){
+          $hayProductos = true;
           ?>
           <div class="compra">
                     <div class="texto">
                       <h5>{{$producto["nombre"]}}</h5>
-                      <p>{{$producto["detalle"]}}</p>
-                      <p>{{$producto["precio"]}}</p>
+                      <p>{{$producto["detalle"]}} Priecio:{{$producto["precio"]}}</p>
+
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
                         <button type="submit" name="editar" value="{{$producto["id"]}}">Editar</button>
@@ -40,6 +42,13 @@
         }
         ?>
       @endforeach
+      <?php if($hayProductos == false){
+        ?>     <div class="compra">
+                      <div class="texto">
+                      no tienes prouctos creados
+                        </div>
+            </div> <?php
+      } ?>
       </div>
       <?php if($editar == true){ ?>
       <div class="perfil">
@@ -84,7 +93,13 @@
           </h5>
         </form>
       </div>
-      <?php } ?>
+      <?php }else{
+        ?>
+        <div class="perfil">
+          <h4>aqui puedes editar tus productos</h4>
+        </div>
+        <?php
+      } ?>
     </div>
 
 

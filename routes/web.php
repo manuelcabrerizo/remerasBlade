@@ -12,15 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
-
-
-
-
 Route::get('faq', 'faqlController@mostarView');
 Route::get('contacto', 'contactoController@mostarView');
-
 Auth::routes();
 Route::get('perfil', 'perfilController@mostarView');
 Route::post('perfil', 'perfilController@save');
@@ -34,3 +29,6 @@ Route::get('editarProducto', 'perfilController@editarProducto');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('carrito', 'HomeController@carritoView');
 Route::post('carrito', 'HomeController@carritoAdd');
+Route::post('eliminarCarrito', 'carritoController@carritoRemove');
+Route::post('mostrarMas', 'mostrarMasController@mostrarView');
+Route::post('carritoFinal', 'mostrarMasController@mostarCarro');

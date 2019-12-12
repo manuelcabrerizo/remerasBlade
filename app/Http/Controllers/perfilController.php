@@ -9,11 +9,11 @@ class perfilController extends Controller
 {
   public function mostarView(){
     $usuarioLogeado = Auth::user();
+    $productos = Remera::all();
     if(isset($usuarioLogeado)){
       $update = false;
-      $vac = compact("usuarioLogeado");
-      $vac2 = compact("update");
-      return view('perfil', $vac, $vac2);
+      $vac = compact("usuarioLogeado", "update", "productos");
+      return view('perfil', $vac);
     }else{
       return view('perfil');
     }
@@ -21,10 +21,10 @@ class perfilController extends Controller
 
   public function update(){
     $usuarioLogeado = Auth::user();
+    $productos = Remera::all();
     $update = true;
-    $vac = compact("usuarioLogeado");
-    $vac2 = compact("update");
-    return view('perfil', $vac, $vac2);
+    $vac = compact("usuarioLogeado","productos", "update");
+    return view('perfil', $vac);
   }
   public function save(Request $rec){
     $usuarioLogeado = Auth::user();

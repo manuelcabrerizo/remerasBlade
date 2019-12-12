@@ -39,9 +39,9 @@
               <label for="nombre">email:</label>
               <h5><?php echo $usuarioLogeado->email."<br>"; ?></h5>
               <h5>
-                <a href="update" type="button">update</a><br>
-                <a href="mostrarCrear" type="button">Crear Producto</a><br>
-                <a href="misProductos" type="button">Mis Productos</a><br>
+                <a href="update" class="btn btn-dark" role="button">update</a><br><br>
+                <a href="mostrarCrear" class="btn btn-dark" role="button">Crear Producto</a><br><br>
+                <a href="misProductos" class="btn btn-dark" role="button">Editar Productos</a><br>
 
               </h5>
               <?php
@@ -77,6 +77,35 @@
               </div><?php
       }
      ?>
+     <div class="info2">
+       <p class="coment2"></p>
+     </div>
+     <h2 class="tituloProduct">Tus productos</h2>
+     <div class="productoPerfil">
+
+     @foreach ($productos as $producto)
+       <?php
+       if($producto->user_id == $usuarioLogeado->id){
+         ?>
+         <div class="cadaP">
+           <div class="fotoPerfil">
+             <img src="img/<?php echo $producto->foto;?>" width="242px" height="185px;">
+           </div>
+           <div class="datosPerfil">
+             <h5>{{$producto["nombre"]}}</h5>
+             <p>{{$producto["detalle"]}}</p>
+             <p>{{$producto["precio"]}}</p>
+             <form class="" action="mostrarMas" method="post">
+               {{csrf_field()}}
+                 <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
+             </form>
+           </div>
+           </div>
+         <?php
+       }
+       ?>
+     @endforeach
+     </div>
       </div>
     </div>
   <?php

@@ -34,35 +34,44 @@
                                     <a class="nav-link active"  href="faq">Preguntas Frecuentes</a>
                                   </li>
                                   <li class="nav-item">
-                                    <?php if (isset($usuarioLogeado)) {
-
-                                    }else{ ?>
-                                    <a class="nav-link active"  href="register">Registro</a>
-                                  <?php } ?>
-                                  </li>
-                                  <li class="nav-item">
-                                    <?php if (isset($usuarioLogeado)) {
-
-                                    }else{ ?>
-                                    <a class="nav-link active"  href="login">Login</a>
-                                  <?php } ?>
-                                  </li>
-                                  <li class="nav-item">
                                     <a class="nav-link active"  href="contacto">Contactos</a>
                                   </li>
-                                  <li class="nav-item">
-                                    <?php if (isset($usuarioLogeado)){?>
-                                              <a class="nav-link active" href="perfil">hola <?php if(isset($usuarioLogeado)){ echo $usuarioLogeado->name;}else{ } ?></a>
-                                      <?php
-                                          }else{
-
-                                          }?>
-                                  </li>
-
+                                  <?php if(isset($usuarioLogeado)){ ?>
                                 <li class="nav-item"> <a class="nav-link active" href="carrito"> su carrito</a> </li>
-                                <li><form class="" action="home.php" method="post">
-                                  <input type="submit" name="reiniciar" value="reiniciar"class="btn btn-primary" >
-                                </form>  </li>
+                                <?php   }else{
+
+                                        } ?>
+                                        @guest
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            </li>
+                                            @if (Route::has('register'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                </li>
+                                            @endif
+                                        @else
+
+                                            <li class="nav-item">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                                </a>
+                            ​
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                  <a class="dropdown-item" href="perfil">perfil</a>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+                            ​
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+                                            </li>
+
+                                        @endguest
                               </ul>
 
 
@@ -181,17 +190,23 @@
                           <div class="card-body">
                             <h5 class="card-title">{{$producto["nombre"]}}</h5>
                             <h6 class="card-text">{{$producto["precio"]}}</h6>
-                            <form class="" action="funciones.php" method="post">
+                            <form class="" action="mostrarMas" method="post">
                               {{csrf_field()}}
-                                <button type="submit" name="vermas" value="1" class="btn btn-primary">ver mas</button>
+                                <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
                             </form>
+                            <?php if (isset($usuarioLogeado)){ ?>
                             <form action="carrito" class="carro" method="post">
                               {{csrf_field()}}
                               <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-primary fas fa-cart-plus">carrito</button>
                             </form>
-                          <!--  <form action="home.php" class="eliminar" method="post">
-                              <button type="submit" name="eliminar" value="1`" class="btn">eliminar</button>
-                            </form> -->
+                            <?php }else{
+
+                              ?>
+
+                              <a class="btn btn-primary" href="login" role="button">carrito</a>
+                              <?php
+
+                            } ?>
                           </div>
                         </div>
                         @endforeach

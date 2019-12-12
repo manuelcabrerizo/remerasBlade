@@ -42,7 +42,8 @@ class HomeController extends Controller
     public function carritoView(){
       $usuarioLogeado = Auth::user();
       $productos = Remera::all();
-      $vac = compact("usuarioLogeado", "productos");
+      $carro = Carrito::all();
+      $vac = compact("usuarioLogeado", "productos", "carro");
       return view('carrito', $vac);
     }
 
