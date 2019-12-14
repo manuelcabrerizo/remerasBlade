@@ -39,10 +39,9 @@
               <label for="nombre">email:</label>
               <h5><?php echo $usuarioLogeado->email."<br>"; ?></h5>
               <h5>
-                <a href="update" class="btn btn-dark" role="button">update</a><br><br>
+                <a href="update" class="btn btn-dark" role="button">Actualizar perfil</a><br><br>
                 <a href="mostrarCrear" class="btn btn-dark" role="button">Crear Producto</a><br><br>
                 <a href="misProductos" class="btn btn-dark" role="button">Editar Productos</a><br>
-
               </h5>
               <?php
 
@@ -95,7 +94,7 @@
              <h5>{{$producto["nombre"]}}</h5>
              <p>{{$producto["detalle"]}}</p>
              <p>{{$producto["precio"]}}</p>
-             <form class="" action="mostrarMas" method="post">
+             <form class="" action="mostrarMas" method="get">
                {{csrf_field()}}
                  <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
              </form>

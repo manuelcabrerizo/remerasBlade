@@ -1,3 +1,6 @@
+.invisible{
+  display: none;
+}
 .productoPerfil{
   position: relative;
   overflow: hidden;

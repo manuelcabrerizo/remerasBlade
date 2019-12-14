@@ -17,11 +17,11 @@
                 <div class="texto">
                     <h5>{{$productoCarro->nombre}}</h5>
                     <p>{{$productoCarro->detalle}}</p>
-                    <p>{{$productoCarro->precio}}</p>
+                    <p>${{$productoCarro->precio}}</p>
                 </div>
                 <form class="botonEliminar" action="/eliminarCarrito" method="post">
                   {{csrf_field()}}
-                  <button type="submit" name="eliminar" class="btn btn-dark" value="{{$productoCarro->id}}">eliminar</button>
+                  <button type="submit" name="eliminar" class="btn btn-dark" value="{{$productoCarro->id}}">Eliminar</button>
                 </form>
                 <div class="imagen">
                     <img src="img/{{$productoCarro->foto}}" width="200px" height="150px">
@@ -35,9 +35,6 @@
          <?php
        }
       ?>
-
-
-
     </div>
     <div class="perfil">
       <?php if(isset($usuarioLogeado)){ ?>
@@ -50,12 +47,14 @@
           foreach ($usuarioLogeado->carrito as $productoCarro) {
             $precioFinal = $precioFinal + $productoCarro->precio;
           } ?>
-      <p>total a pagar: </p>
-      <h5>$<?php echo $precioFinal; ?></h5>
+      <p>Total a pagar: </p>
+      <h3>$<?php echo $precioFinal; ?></h3>
       <a class="btn btn-dark" href="home" role="button">Volver</a>
-      <button class="btn btn-dark" type="button" name="comprar" value="comprar" >comprar</button>
+      <form class="compra" action="datos" method="get">
+        <button type="submit" name="compra" class="btn btn-dark" value="">Comprar</button>
+      </form>
       <?php }else{
-        ?> tienes que iniciar secion para realizar una compra <?php
+        ?> Tienes que iniciar secion para realizar una compra <?php
       } ?>
     </div>
     </div>

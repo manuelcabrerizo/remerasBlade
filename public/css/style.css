@@ -302,3 +302,12 @@ margin-left: 1%;
   main.py-4 {
   padding: inherit;
   }
+  .carrito{
+    background-color: red;
+  }
+  .btn-primary{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  

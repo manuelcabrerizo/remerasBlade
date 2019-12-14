@@ -151,7 +151,12 @@
           <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark">comprar</button>
         </form>
         <?php }else{
-          ?><a class="btn btn-dark" href="login" role="button">comprar</a><?php
+          ?>
+          <form action="carritoFinal" class="carro" method="post">
+            {{csrf_field()}}
+            <button type="submit" name="incrementar2" value="{{$producto["id"]}}" class="btn btn-dark">comprar</button>
+          </form>
+          <?php
         } ?>
       </div>
     </div>

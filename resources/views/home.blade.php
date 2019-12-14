@@ -168,18 +168,6 @@
                               <button class="dropdown-item" type="button">Something else here</button>
                             </div>
                           </div>
-
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Ofertas
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
                       </nav>
 
                       <section class="foto">
@@ -190,14 +178,14 @@
                           <div class="card-body">
                             <h5 class="card-title">{{$producto["nombre"]}}</h5>
                             <h6 class="card-text">{{$producto["precio"]}}</h6>
-                            <form class="" action="mostrarMas" method="post">
+                            <form class="" action="mostrarMas" method="get">
                               {{csrf_field()}}
                                 <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
                             </form>
                             <?php if (isset($usuarioLogeado)){ ?>
                             <form action="carrito" class="carro" method="post">
                               {{csrf_field()}}
-                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-primary fas fa-cart-plus">carrito</button>
+                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-primary fas fa-cart-plus carrito">carrito</button>
                             </form>
                             <?php }else{
 

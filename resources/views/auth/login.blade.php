@@ -2,7 +2,7 @@
 @extends('header')
 @section('content')
 
-  
+
   <head>
     <link rel="stylesheet" href="{{asset('css/login2.css')}}">
     <link rel="stylesheet" href="{{asset('css/login3.css')}}">

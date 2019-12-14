@@ -31,7 +31,7 @@
                       </form>
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
-                        <button type="submit" name="eliminar" value="{{$producto["id"]}}">eliminar</button>
+                        <button type="submit" name="eliminar" value="{{$producto["id"]}}">Eliminar</button>
                       </form>
                     </div>
                       <div class="imagen">
@@ -45,7 +45,7 @@
       <?php if($hayProductos == false){
         ?>     <div class="compra">
                       <div class="texto">
-                      no tienes prouctos creados
+                      No tienes prouctos creados
                         </div>
             </div> <?php
       } ?>
@@ -55,19 +55,19 @@
         <form class="" action="modificarProducto" method="post" enctype="multipart/form-data">
           {{csrf_field()}}
           <p>
-            <label for="nombre">nombre</label><br>
+            <label for="nombre">Nombre</label><br>
             <input type="text" name="nombre" id="nombre" value="{{$productoId->nombre}}">
           </p>
           <p>
-            <label for="foto">foto</label><br>
+            <label for="foto">Foto</label><br>
             <input type="file" name="foto3" id="foto" value="">
           </p>
           <p>
-            <label for="detalle">detalle</label><br>
+            <label for="detalle">Detalle</label><br>
             <textarea name="detalle" rows="4" cols="35" id="detalle">{{$productoId->detalle}}</textarea>
           </p>
           <p>
-            <label for="precio">precio</label><br>
+            <label for="precio">Precio</label><br>
             <input type="number" name="precio" id="precio" value="{{$productoId->precio}}">
           </p>
           <p>
@@ -82,8 +82,9 @@
           <p>
             <label for="talle">talle</label><br>
             <select class="" name="talle" id="talle">
-              <option value="l">large</option>
-              <option value="m">medium</option>
+              <option value="xl">Extra large</option>
+              <option value="l">Large</option>
+              <option value="m">Medium</option>
               <option value="s">small</option>
             </select>
           </p>
@@ -96,7 +97,7 @@
       <?php }else{
         ?>
         <div class="perfil">
-          <h4>aqui puedes editar tus productos</h4>
+          <h4>Aqui puedes editar tus productos</h4>
         </div>
         <?php
       } ?>
