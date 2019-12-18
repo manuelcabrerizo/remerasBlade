@@ -1,0 +1,66 @@
+.cuerpo{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.tarjetas{
+  background-color: white;
+  margin: 0 auto;
+  width: 40%;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+.tusTarjetas{
+  margin-top: 20px;
+}
+.tarjeta1{
+  background-color: white;
+  margin: 0 auto;
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+
+}
+.pregunta{
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  font-size: 30px;
+  color: grey;
+}
+.caja{
+  margin-bottom: 20px;
+}
+.agregar{
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+}
+.usar{
+  position: relative;
+  left: 140px;
+}
+.usar2{
+  position: relative;
+  left: 100px;
+}
+.botonCompar{
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.carrito{
+  background-color: #ffad5b;
+}

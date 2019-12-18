@@ -144,26 +144,72 @@
         <p>talle: {{$producto->talle}}</p>
 
 
-        <a class="btn btn-dark" href="home" role="button">Volver</a>
+        <a class="btn btn-dark carrito" href="home" role="button">Volver</a>
         <?php if (isset($usuarioLogeado)){ ?>
         <form action="carritoFinal" class="carro" method="post">
           {{csrf_field()}}
-          <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark">comprar</button>
+          <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">comprar</button>
         </form>
         <?php }else{
           ?>
           <form action="carritoFinal" class="carro" method="post">
             {{csrf_field()}}
-            <button type="submit" name="incrementar2" value="{{$producto["id"]}}" class="btn btn-dark">comprar</button>
+            <button type="submit" name="incrementar2" value="{{$producto["id"]}}" class="btn btn-dark carrito">comprar</button>
           </form>
           <?php
         } ?>
       </div>
     </div>
+    </main>
+        <?php
+        foreach ($preguntas as $pregunta) {
+          if($productoId == $pregunta->producto_id){
+        ?><div class="pregunta">
+         <div class="cadaPregunta">
+           <?php
+           foreach ($usuarios as $usuario) {
+             if($pregunta->user_id == $usuario->id){
+               ?> <b>{{$usuario->name}}</b> <?php
+             }
+           }
+            ?>
+          <p>{{$pregunta->contenido}}</p>
+          <?php if(isset($usuarioLogeado) && $usuarioLogeado->id == $producto->user_id){ ?>
+            <form class="" action="guardarRespuesta" method="post">
+              {{csrf_field()}}
+              <input class="invisible" type="text" name="productoId" value="{{$producto->id}}">
+              <input class="invisible" type="text" name="preguntaId" value="{{$pregunta->id}}">
+              <input type="text" name="respuesta" value="">
+              <button type="submit" name="button">Responder</button>
+            </form>
+            <?php } ?>
+          </div>
+          <?php
+          foreach ($respuestas as $respuesta) {
+            if($respuesta->pregunta_id == $pregunta->id){
+            ?> <div class="cadaRespuesta">
+              <p>{{$respuesta->contenido}}</p>
+            </div> <?php
+          }
+        }
+          ?>
+             <?php
+          }
+          ?> </div> <?php
+        }
+        ?>
 
+      <div class="pregunta">
+        <?php if(isset($usuarioLogeado) && $usuarioLogeado->id != $producto->user_id){ ?>
+        <form class="" action="mostrarMasPregunta" method="post">
+          {{csrf_field()}}
+          <input class="invisible" type="text" name="productoId" value="{{$producto->id}}">
+          <input type="text" name="pregunta" value="" class="preguntar">
+          <button type="submit" name="button">Enviar</button>
+        </form>
+        <?php } ?>
+      </div>
   @endif
 @endforeach
-</div>
-</main>
 @stop
 @extends('footer')

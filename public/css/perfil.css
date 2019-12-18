@@ -1,3 +1,4 @@
+
 .invisible{
   display: none;
 }
@@ -9,27 +10,50 @@
   width: 80%;
 
 }
+.productoPerfil2{
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 80%;
+
+}
 .tituloProduct{
   position: relative;
   top: 170px;
+}
+.tituloCompra{
+  text-align: center;
+  color: grey;
+}
+.botones{
+  margin-bottom: 10px;
 }
 .cadaP{
   background-color: white;
   position: relative;
   float: left;
-  margin-right: 30px;
+  margin-right: 25px;
   margin-bottom: 30px;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
+  padding-top: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 7px;
+  border-radius: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 ul.navbar li a{
-  color: white;
-  font-size: 13px;
+  color: black;
+  font-size: 17px;
+}
+a{
+  color: orange
 }
 ul.nav li a{
-  color: white;
+  color: black;
+  font-size: 17px;
 }
 .pos-f-t{
   position: relative;
@@ -81,6 +105,11 @@ div.logo img{
   padding-left: 7px;
   padding-right: 7px;
   padding-bottom: 7px;
+  border-radius: 15px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 div.usuario{
   position: relative;
@@ -135,6 +164,11 @@ p.coment2{
     padding-bottom: 10px;
     border-bottom: 1px solid grey;
   }
+  .navbar{
+    background: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
   div.info2{
     position: relative;
     width: 100%;
@@ -158,6 +192,7 @@ p.coment2{
     float: left;
     left: 15%;
     top: 60px;
+
   }
   div.usuario h5, div.usuario label{
     position: relative;
@@ -183,5 +218,8 @@ p.coment2{
   .navbar-dark .navbar-toggler{
     position: relative;
     right: 47%;
+  }
+  .carrito{
+    background-color: #ffad5b;
   }
 }

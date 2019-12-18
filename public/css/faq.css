@@ -1,5 +1,20 @@
+.pregunta{
+  background: white;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
 ul.nav li a{
-  color: white;
+  color: black;
 }
 .pos-f-t{
   position: relative;
@@ -25,8 +40,15 @@ ul.navbar li{
   list-style: none;
 }
 ul.navbar li a{
-  color: white;
+  color: black;
   font-size: 13px;
+}
+a.nav-link{
+  color: black;
+    font-size: 17px;
+}
+a{
+  color: orange;
 }
 nav.navbar.navbar-dark.bg-dark{
   width: 100%;
@@ -71,6 +93,11 @@ div.cuerpo{
   .cabeza{
 
     display: block;
+  }
+  .navbar{
+    background: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
   }
   div.info{
     width: 100%;

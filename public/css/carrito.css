@@ -1,5 +1,20 @@
-
-
+.carrito{
+  background-color: #ffad5b;
+  width: 89%;
+  margin-bottom: 20px;
+}
+.carrito2{
+  background-color: #ffad5b;
+}
+.navbar{
+  background: white;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.btn-dark{
+  position: relative;
+  left: 10px;
+}
 .carro{
   background-color: #E0DFDE;
 }
@@ -7,8 +22,8 @@
 
 
 ul.navbar li a{
-  color: white;
-  font-size: 13px;
+  color: black;
+  font-size: 17px;
 }
 .botonEliminar{
   position: relative;
@@ -17,7 +32,11 @@ ul.navbar li a{
 }
 
 ul.nav li a{
-  color: white;
+  color: black;
+  font-size: 17px;
+}
+a{
+  color: orange;
 }
 .cuerpo {
     position: relative;
@@ -39,6 +58,11 @@ ul.nav li a{
   display: block;
   margin-top: 40px;
   margin-right: 0px;
+  border-radius: 15px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 
 }
 .texto{
@@ -64,10 +88,19 @@ ul.nav li a{
   padding-top: 15px;
   float: left;
   box-sizing: border-box;
+  border-radius: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
-.logo img{
-  border-radius: 100%;
+.logoPerfil img{
+  border-radius: 15px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 @media only screen and (min-width: 1024px){
   .perfil{

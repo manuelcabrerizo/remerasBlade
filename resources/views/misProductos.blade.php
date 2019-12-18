@@ -23,15 +23,15 @@
           <div class="compra">
                     <div class="texto">
                       <h5>{{$producto["nombre"]}}</h5>
-                      <p>{{$producto["detalle"]}} Priecio:{{$producto["precio"]}}</p>
+                      <p>{{$producto["precio"]}}</p>
 
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
-                        <button type="submit" name="editar" value="{{$producto["id"]}}">Editar</button>
+                        <button class="btn btn-dark carrito2" type="submit" name="editar" value="{{$producto["id"]}}">Editar</button>
                       </form>
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
-                        <button type="submit" name="eliminar" value="{{$producto["id"]}}">Eliminar</button>
+                        <button class="btn btn-dark carrito2" type="submit" name="eliminar" value="{{$producto["id"]}}">Eliminar</button>
                       </form>
                     </div>
                       <div class="imagen">
@@ -73,6 +73,7 @@
           <p>
             <label for="color">color</label><br>
             <select class="" name="color" id="color">
+              <option value="{{$productoId->color}}">{{$productoId->color}}</option>
               <option value="negro">negro</option>
               <option value="blanco">blanco</option>
               <option value="rojo">rojo</option>
@@ -82,6 +83,7 @@
           <p>
             <label for="talle">talle</label><br>
             <select class="" name="talle" id="talle">
+              <option value="{{$productoId->talle}}">{{$productoId->talle}}</option>
               <option value="xl">Extra large</option>
               <option value="l">Large</option>
               <option value="m">Medium</option>
@@ -90,7 +92,7 @@
           </p>
 
           <h5>
-            <button type="submit" name="modificar" value="{{$productoId->id}}">Modificar</button>
+            <button class="btn btn-dark carrito2" type="submit" name="modificar" value="{{$productoId->id}}">Modificar</button>
           </h5>
         </form>
       </div>

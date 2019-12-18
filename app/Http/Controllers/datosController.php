@@ -8,6 +8,8 @@ use App\Carrito;
 use App\Remera;
 use App\Tarjeta;
 use App\Ubicacion;
+use App\Compra;
+use App\Comprausuario;
 
 
 class datosController extends Controller
@@ -27,16 +29,16 @@ class datosController extends Controller
       $productos = Remera::all();
       $carrito = Carrito::all();
       $domicilios = Ubicacion::all();
-      $nuevaTarjeta = $rec["tarjeta"];
-      $vac = compact("domicilios", "usuarioLogeado", "productos", "carrito", "tarjetas", "nuevaTarjeta");
       $tarjeta = new Tarjeta;
       $tarjeta->numero = $rec["tarjeta"];
       $tarjeta->user_id = $usuarioLogeado->id;
       $tarjeta->save();
+      $vac = compact("domicilios", "usuarioLogeado", "productos", "carrito", "tarjetas", "tarjeta");
       return view('ubicacion', $vac);
     }
     public function guardarUbicacion(Request $rec){
       $usuarioLogeado = Auth::user();
+      $tarjetas = Tarjeta::all();
       $tarjetaNueva = $rec["button"];
       $productos = Remera::all();
       $carrito = Carrito::all();
@@ -47,7 +49,7 @@ class datosController extends Controller
       $domicilio->provincia = $rec["provincia"];
       $domicilio->user_id = $usuarioLogeado->id;
       $domicilio->save();
-      $vac = compact("tarjetaNueva", "usuarioLogeado", "productos", "carrito", 'domicilio');
+      $vac = compact("tarjetaNueva", "usuarioLogeado", "productos", "carrito", 'domicilio', "tarjetas");
       return view('compra', $vac);
     }
     public function usarTarjeta(Request $rec){
@@ -62,12 +64,29 @@ class datosController extends Controller
     }
     public function usarUbicacion(Request $rec){
       $usuarioLogeado = Auth::user();
+      $tarjetas = Tarjeta::all();
       $productos = Remera::all();
       $carrito = Carrito::all();
       $domicilios = Ubicacion::all();
       $tarjeta = $rec["tarjetaElegida"];
       $ubicacionId = $rec["usarDomicilio"];
-      $vac = compact("usuarioLogeado", "productos", "carrito", "tarjeta", "ubicacionId", "domicilios");
+      $vac = compact("usuarioLogeado", "productos", "carrito", "tarjeta", "ubicacionId", "domicilios","tarjetas");
       return view('compra', $vac);
+    }
+
+    public function compraAdd(){
+      $usuarioLogeado = Auth::user();
+      $productos = Remera::all();
+      $carrito = Carrito::all();
+      $compraUsuario = new Comprausuario;
+      $compraUsuario->user_id = $usuarioLogeado->id;
+      $compraUsuario->save();
+      foreach ($usuarioLogeado->carrito as $productoCarro) {
+        $compra = new Compra;
+        $compra->user_id = $compraUsuario->id;
+        $compra->producto_id = $productoCarro->id;
+        $compra->save();
+      }
+      return redirect('home');
     }
 }

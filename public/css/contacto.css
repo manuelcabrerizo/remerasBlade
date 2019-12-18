@@ -11,6 +11,13 @@ ul.navbar li{
 ul.navbar li a{
   color: grey;
 }
+a.nav-link{
+  color: black;
+  font-size: 17px;
+}
+a{
+  color: orange;
+}
 nav.navbar.navbar-dark.bg-dark{
   width: 100%;
 }
@@ -25,6 +32,17 @@ div.contenedor{
   width: 100%;
 }
 div.logo{
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  background: white;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
   float: left;
   position: relative;
   left: 15%;
@@ -58,8 +76,11 @@ div.cuerpo{
   }
 }
 @media only screen and (min-width: 1024px){
-  ul.nav li a{
-    color: white;
+
+  .navbar{
+    background: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
   }
   div.info{
     width: 100%;
@@ -79,7 +100,7 @@ div.cuerpo{
     display: block;
     margin-top: 30px;
     position: relative;
-    left: 35%;
+    left: 25%;
   }
   .navbar-dark .navbar-toggler{
     position: relative;

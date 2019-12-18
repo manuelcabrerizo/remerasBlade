@@ -13,8 +13,9 @@
     <p class="coment2">ingresa tus datos:</p>
   </div>
 <div class="cuerpo">
+  <div class="fondo2">
 <div class="logo">
-  <img src="{{asset('img/portada.JPG')}}" alt="logo">
+  <img src="{{asset('img/kurama.png')}}" alt="logo">
 </div>
                   <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                       @csrf
@@ -75,7 +76,7 @@
                           <label for="foto" class="col-md-12 col-form-label text-md-center">{{ __('Su foto de perfi') }}</label>
 
                           <div class="col-md-12">
-                              <input id="foto" type="file" name="foto" value="">
+                              <input id="foto" type="file" name="foto" value="" required>
 
                               @error('foto')
                                   <span class="invalid-feedback" role="alert">
@@ -87,7 +88,7 @@
 
                       <div class="form-group row mb-0">
                           <div class="col-md-6 offset-md-4">
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" class="btn-dark carrito">
                                   {{ __('Register') }}
                               </button>
                           </div>
@@ -97,6 +98,7 @@
 
 
                   </form>
+                </div>
                 </div>
               </div>
 @endsection

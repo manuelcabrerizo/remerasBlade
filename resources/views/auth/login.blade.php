@@ -14,8 +14,9 @@
     <p class="coment2">ingresa tus datos:</p>
   </div>
   <div class="cuerpo">
+    <div class="fondo">
     <div class="logo">
-      <img src="{{asset('img/portada.JPG')}}" alt="logo">
+      <img src="{{asset('img/kurama.png')}}" alt="logo">
     </div>
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -53,7 +54,7 @@
                 </div>
 
 
-                <input type="submit" class="boton" value="login" name="login">
+                <input type="submit" class="btn-dark carrito" value="login" name="login">
                     {{ __('Login') }}
                 </input>
 
@@ -64,7 +65,7 @@
                 @endif
 
     </form>
-
+  </div>
   </div>
 
 @endsection

@@ -39,9 +39,10 @@
               <label for="nombre">email:</label>
               <h5><?php echo $usuarioLogeado->email."<br>"; ?></h5>
               <h5>
-                <a href="update" class="btn btn-dark" role="button">Actualizar perfil</a><br><br>
-                <a href="mostrarCrear" class="btn btn-dark" role="button">Crear Producto</a><br><br>
-                <a href="misProductos" class="btn btn-dark" role="button">Editar Productos</a><br>
+                <a href="update" class="btn btn-dark botones carrito" role="button">Actualizar perfil</a><br>
+                <a href="misCompras" class="btn btn-dark botones carrito" role="button">Mis Compras</a><br>
+                <a href="mostrarCrear" class="btn btn-dark botones carrito" role="button">Crear Producto</a><br>
+                <a href="misProductos" class="btn btn-dark botones carrito" role="button">Editar Productos</a>
               </h5>
               <?php
 
@@ -50,6 +51,13 @@
         </div>
       <?php }else if($update == true){
         ?>    <div class="usuario">
+            <ul style="color:red" class="errores">
+              @foreach ($errors->all() as $error)
+                <li>
+                  {{$error}}
+                </li>
+              @endforeach
+            </ul>
                 <form class="update" action="/perfil" method="post" enctype="multipart/form-data">
                   {{csrf_field()}}
                       <p>
@@ -66,10 +74,10 @@
                       </p>
                       <p>
 
-                        <h5> <input type="file" id="imagen2" name="imagen2" value=""></h5>
+                        <h5> <input  type="file" id="imagen2" name="imagen2" value=""></h5>
                       </p>
                       <h5>
-                        <input type="submit" name="update" value="update">
+                        <input class="btn btn-dark carrito" type="submit" name="update" value="update">
                       </h5>
                  </form>
 
@@ -92,11 +100,10 @@
            </div>
            <div class="datosPerfil">
              <h5>{{$producto["nombre"]}}</h5>
-             <p>{{$producto["detalle"]}}</p>
              <p>{{$producto["precio"]}}</p>
              <form class="" action="mostrarMas" method="get">
                {{csrf_field()}}
-                 <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
+                 <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">ver mas</button>
              </form>
            </div>
            </div>

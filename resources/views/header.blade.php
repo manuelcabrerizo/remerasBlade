@@ -1,8 +1,8 @@
 @section('header')
   <?php   session_start(); ?>
   <header class="cabeza">
-      <img src="{{asset('img/portada.JPG')}}"  width="100%" height="200px;">
-          <nav class="navbar navbar-dark bg-dark">
+      <img src="img/boruto-naruto-the-movie-wallpaper-hd-2048x1080-327497.jpg"  width="100%" height="200px;">
+          <nav class="navbar">
             <ul class="nav">
             <li class="nav-item">
               <a class="nav-link active" href="home">Home</a>

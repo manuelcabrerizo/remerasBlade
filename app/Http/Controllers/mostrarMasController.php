@@ -4,13 +4,19 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Carrito;
 use App\Remera;
+use App\Pregunta;
+use App\Respuesta;
+use Illuminate\Support\Facades\DB;
 class mostrarMasController extends Controller
 {
-    public function mostrarView(Request $rec){
+    public function mostrarView($id){
       $usuarioLogeado = Auth::user();
+      $usuarios = DB::table('users')->get();
       $productos = Remera::all();
-      $productoId = $rec["verMas"];
-      $vac = compact("usuarioLogeado", "productos", "productoId");
+      $respuestas = Respuesta::all();
+      $preguntas = Pregunta::all();
+      $productoId = $id;
+      $vac = compact("usuarioLogeado", "productos", "productoId", "preguntas", "respuestas", "usuarios");
       return view("mostarMas", $vac);
     }
     public function mostarCarro(Request $rec){
@@ -29,7 +35,7 @@ class mostrarMasController extends Controller
           }
         }
       }elseif(isset($rec["incrementar2"])){
-        setcookie("noLogeado", true, time()+3600);
+        setcookie("productoId", $rec["incrementar2"], time()+3600);
         return redirect('login');
       }
     }

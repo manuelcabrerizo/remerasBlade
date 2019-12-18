@@ -24,8 +24,8 @@
 
                       <header class="cabeza">
 
-                          <img src="img/portada.JPG"  width="100%" height="200px;">
-                              <nav class="navbar navbar-dark bg-dark">
+                          <img src="img/boruto-naruto-the-movie-wallpaper-hd-2048x1080-327497.jpg"  width="100%" height="200px;">
+                              <nav class="navbar">
                                 <ul class="nav">
                                   <li class="nav-item">
                                     <a class="nav-link active" href="home">Home</a>
@@ -88,8 +88,8 @@
 
 
                       <div>
-                      <main class="contenedor">
 
+                      <main class="contenedor">
                       <nav class="botones">
 
                           <div class="dropdown">
@@ -177,21 +177,21 @@
                           <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
                           <div class="card-body">
                             <h5 class="card-title">{{$producto["nombre"]}}</h5>
-                            <h6 class="card-text">{{$producto["precio"]}}</h6>
-                            <form class="" action="mostrarMas" method="get">
+                            <h6 class="card-text">${{$producto["precio"]}}</h6>
+                            <form class="" action="/producto{{$producto["id"]}}" method="get">
                               {{csrf_field()}}
-                                <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-primary">ver mas</button>
+                                <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">Ver mas</button>
                             </form>
                             <?php if (isset($usuarioLogeado)){ ?>
                             <form action="carrito" class="carro" method="post">
                               {{csrf_field()}}
-                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-primary fas fa-cart-plus carrito">carrito</button>
+                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">Carrito</button>
                             </form>
                             <?php }else{
 
                               ?>
 
-                              <a class="btn btn-primary" href="login" role="button">carrito</a>
+                              <a class="btn btn-dark carrito" href="login" role="button">Carrito</a>
                               <?php
 
                             } ?>

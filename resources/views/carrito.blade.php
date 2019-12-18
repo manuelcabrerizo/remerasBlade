@@ -16,12 +16,12 @@
            <div class="compra">
                 <div class="texto">
                     <h5>{{$productoCarro->nombre}}</h5>
-                    <p>{{$productoCarro->detalle}}</p>
+                    
                     <p>${{$productoCarro->precio}}</p>
                 </div>
                 <form class="botonEliminar" action="/eliminarCarrito" method="post">
                   {{csrf_field()}}
-                  <button type="submit" name="eliminar" class="btn btn-dark" value="{{$productoCarro->id}}">Eliminar</button>
+                  <button type="submit" name="eliminar" class="btn btn-dark carrito2" value="{{$productoCarro->id}}">Eliminar</button>
                 </form>
                 <div class="imagen">
                     <img src="img/{{$productoCarro->foto}}" width="200px" height="150px">
@@ -49,9 +49,9 @@
           } ?>
       <p>Total a pagar: </p>
       <h3>$<?php echo $precioFinal; ?></h3>
-      <a class="btn btn-dark" href="home" role="button">Volver</a>
-      <form class="compra" action="datos" method="get">
-        <button type="submit" name="compra" class="btn btn-dark" value="">Comprar</button>
+      <a class="btn btn-dark carrito" href="home" role="button">Volver</a>
+      <form action="datos" method="get">
+        <button type="submit" name="compra" class="btn btn-dark carrito" value="">Comprar</button>
       </form>
       <?php }else{
         ?> Tienes que iniciar secion para realizar una compra <?php
