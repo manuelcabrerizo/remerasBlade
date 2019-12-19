@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Remera;
 use App\Carrito;
+use App\Categoria;
 class HomeController extends Controller
 {
     /**
@@ -29,13 +30,29 @@ class HomeController extends Controller
       $usuarioLogeado = Auth::user();
       if(isset($usuarioLogeado)){
         $productos = Remera::all();
-        $vac2 = compact("productos");
-        $vac = compact("usuarioLogeado");
-        return view('home', $vac, $vac2);
+        $categorias = Categoria::all();
+        $remeras = false;
+        $camperas = false;
+        $camisas = false;
+        $accesorios = false;
+        $trajes = false;
+        $indumentaria = false;
+        $cinturones = false;
+        $vac = compact("usuarioLogeado", "productos", "categorias", "remeras", "camperas", "camisas", "accesorios", "trajes", "indumentaria", "cinturones", "categorias", "usuarioLogeado", "productos");
+        return view('home', $vac);
       }else {
+        $categorias = Categoria::all();
         $productos = Remera::all();
-        $vac2 = compact("productos");
+        $remeras = false;
+        $camperas = false;
+        $camisas = false;
+        $accesorios = false;
+        $trajes = false;
+        $indumentaria = false;
+        $cinturones = false;
+        $vac2 = compact("productos", "categorias", "remeras", "camperas", "camisas", "accesorios", "trajes", "indumentaria", "cinturones", "categorias", "usuarioLogeado", "productos");
         return view('home', $vac2);
+
       }
     }
 
@@ -57,8 +74,46 @@ class HomeController extends Controller
           $carrito->user_id = $usuarioLogeado->id;
           $carrito->producto_id = $producto->id;
           $carrito->save();
-          return view('home', $vac);
+          return redirect('home');
         }
       }
+    }
+
+    public function mostrarCategorias(Request $rec){
+      $categorias = Categoria::all();
+      $usuarioLogeado = Auth::user();
+      $productos = Remera::all();
+      $remeras = false;
+      $camperas = false;
+      $camisas = false;
+      $accesorios = false;
+      $trajes = false;
+      $indumentaria = false;
+      $cinturones = false;
+      $categoriaId = $rec["categoria"];
+      if($rec["categoria"] == 1){
+        $remeras = true;
+      }
+      if($rec["categoria"] == 2){
+        $camperas = true;
+      }
+      if($rec["categoria"] == 3){
+        $camisas = true;
+      }
+      if($rec["categoria"] == 4){
+        $accesorios = true;
+      }
+      if($rec["categoria"] == 5){
+        $trajes = true;
+      }
+      if($rec["categoria"] == 6){
+        $indumentaria = true;
+      }
+      if($rec["categoria"] == 7){
+        $cinturones = true;
+      }
+      $vac = compact("remeras", "camperas", "camisas", "accesorios", "trajes", "indumentaria", "cinturones", "categorias", "usuarioLogeado", "productos", "categoriaId");
+      return view('home', $vac);
+
     }
 }

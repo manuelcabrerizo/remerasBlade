@@ -75,11 +75,11 @@
                               </ul>
 
 
-
+{{--
                       <form class="form-inline">
                           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form>
+                      </form> --}}
                       <!-- Navbar content -->
                             </nav>
 
@@ -91,113 +91,81 @@
 
                       <main class="contenedor">
                       <nav class="botones">
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Remeras
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
+                          <?php foreach ($categorias as $categoria) {
+                            ?>
+                            <div class="dropdown">
+                              <form class="" action="homeCategoria{{$categoria->id}}" method="get">
+                                <button value="{{$categoria->id}}" class="btn btn-secondary dropdown-toggle" type="submit" name="categoria" aria-haspopup="true" aria-expanded="false">{{$categoria->categoriaNombre}}</button>
+                              </form>
                             </div>
-                          </div>
+                            <?php
+                          } ?>
 
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Camperas
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Camisas
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Accesorios
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Trajes
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Indumentaria
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
-
-                          <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Cinturones
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button">Action</button>
-                              <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>
-                            </div>
-                          </div>
                       </nav>
 
                       <section class="foto">
-                        @foreach ($productos as $producto)
-                          <div class="card" >
-                          <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
-                          <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
-                          <div class="card-body">
-                            <h5 class="card-title">{{$producto["nombre"]}}</h5>
-                            <h6 class="card-text">${{$producto["precio"]}}</h6>
-                            <form class="" action="/producto{{$producto["id"]}}" method="get">
-                              {{csrf_field()}}
-                                <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">Ver mas</button>
-                            </form>
-                            <?php if (isset($usuarioLogeado)){ ?>
-                            <form action="carrito" class="carro" method="post">
-                              {{csrf_field()}}
-                              <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">Carrito</button>
-                            </form>
-                            <?php }else{
-
+                          @foreach ($productos as $producto)
+                            <?php
+                            if($remeras == false && $camperas == false && $camisas == false && $accesorios == false && $trajes == false && $indumentaria == false && $cinturones == false){
                               ?>
+                            <div class="card" >
+                            <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
+                            <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
+                            <div class="card-body">
+                              <h5 class="card-title">{{$producto["nombre"]}}</h5>
+                              <h6 class="card-text">${{$producto["precio"]}}</h6>
+                              <form class="" action="/producto{{$producto["id"]}}" method="get">
+                                {{csrf_field()}}
+                                  <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">Ver mas</button>
+                              </form>
+                              <?php if (isset($usuarioLogeado)){ ?>
+                              <form action="carrito" class="carro" method="post">
+                                {{csrf_field()}}
+                                <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">Carrito</button>
+                              </form>
+                              <?php }else {
 
-                              <a class="btn btn-dark carrito" href="login" role="button">Carrito</a>
-                              <?php
+                                ?>
 
+                                <a class="btn btn-dark carrito" href="login" role="button">Carrito</a>
+                                <?php
+
+                              }
+                        ?>   </div>
+                              </div> <?php
+
+                        }else{
+
+                              if($producto->categoria_id == $categoriaId){
+                                ?> <div class="card" >
+                                <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
+                                <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
+                                <div class="card-body">
+                                  <h5 class="card-title">{{$producto["nombre"]}}</h5>
+                                  <h6 class="card-text">${{$producto["precio"]}}</h6>
+                                  <form class="" action="/producto{{$producto["id"]}}" method="get">
+                                    {{csrf_field()}}
+                                      <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">Ver mas</button>
+                                  </form>
+                                  <?php if (isset($usuarioLogeado)){ ?>
+                                  <form action="carrito" class="carro" method="post">
+                                    {{csrf_field()}}
+                                    <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">Carrito</button>
+                                  </form>
+                                  <?php }else {
+
+                                    ?>
+
+                                    <a class="btn btn-dark carrito" href="login" role="button">Carrito</a>
+                                    <?php
+
+                                  }
+                            ?>   </div>
+                                  </div> <?php
+                              }
                             } ?>
-                          </div>
-                        </div>
-                        @endforeach
+                          @endforeach
+
                       </section>
                       </div>
                       </main>

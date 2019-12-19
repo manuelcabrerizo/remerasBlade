@@ -41,3 +41,4 @@ Route::post('comprar', 'datosController@compraAdd');
 Route::get('misCompras', 'perfilController@mostrarCompras');
 Route::post('mostrarMasPregunta', 'preguntasController@guardarPregunta');
 Route::post('guardarRespuesta', 'respuestasController@guardarRespuesta');
+Route::get('homeCategoria{id}', 'HomeController@mostrarCategorias');

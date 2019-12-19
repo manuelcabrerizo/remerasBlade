@@ -190,15 +190,14 @@
             ?> <div class="cadaRespuesta">
               <p>{{$respuesta->contenido}}</p>
             </div> <?php
+            }
           }
-        }
           ?>
              <?php
           }
           ?> </div> <?php
         }
         ?>
-
       <div class="pregunta">
         <?php if(isset($usuarioLogeado) && $usuarioLogeado->id != $producto->user_id){ ?>
         <form class="" action="mostrarMasPregunta" method="post">

@@ -1,14 +1,9 @@
 
+
 .preguntar{
   width: 90%;
 }
-.pregunta{
-  position: relative;
-  left: 19.8%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 1152px;
-}
+
 .cadaPregunta{
   background-color: white;
   margin-bottom: 10px;
@@ -70,6 +65,12 @@ li{
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .pregunta{
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+  }
   header.cabeza2{
     display: block;
   }
@@ -82,7 +83,12 @@ li{
 a{
       color: black;
   }
-
+  .contenedor{
+  border-bottom: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  }
   .dropdown{
     width: 100%;
     margin-bottom: 1%;
@@ -130,7 +136,12 @@ a{
     width: 49%;
     margin-bottom: 1%;
   }
-
+  .contenedor{
+  border-bottom: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  }
   .btn-group-vertical{
     width: 100%;
   }
@@ -172,13 +183,18 @@ a{
   .card{
   float: left;
   padding: 10px;
-  width: 100%;
   border-radius: 10px;
   }
 
   .dropdown{
     width: 100%;
     margin-bottom: 1%;
+  }
+  .contenedor{
+  border-bottom: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
   }
 
   .special{
@@ -195,6 +211,9 @@ a{
   .position-relative{
     position: relative!important;
     float: left;
+
+    width: 100%;
+
   }
 }
 
@@ -223,7 +242,12 @@ a{
     margin-bottom: 1%;
   }
 
-
+  .contenedor{
+  border-bottom: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  }
 
   .special{
     /*Contenedor hijo de .photo-conteiner*/
@@ -351,6 +375,13 @@ margin-left: 1%;
 
   .fas fa-cart-plus{
 
+  }
+  .pregunta{
+    position: relative;
+    left: 19.8%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80.2%;
   }
 
 
