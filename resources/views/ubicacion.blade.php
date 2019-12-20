@@ -21,7 +21,7 @@
         <input type="text" name="nombre" value="" required>
       </p>
       <p>
-        <label for="calle">Agregue su calle</label>
+        <label for="calle">Agregue una calle:</label>
         <input type="text" name="calle" value="" required>
       </p>
       <p>
@@ -49,7 +49,7 @@
           <div class="tarjeta1">
           <form class="" action="usarUbicacion" method="get">
             {{csrf_field()}}
-            <label for="usarDomicilio">tu domicilio: {{$domicilio->domicilio}}</label>
+            <label for="usarDomicilio">tu domicilio: {{$domicilio->id}}</label>
             <input class="invisible" type="text" name="tarjetaElegida" value="<?php if(isset($tarjeta)){
               echo $tarjeta->id;
             }elseif(isset($usarTarjeta)){

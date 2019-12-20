@@ -85,6 +85,7 @@ class perfilController extends Controller
     if($errorNombre == false && $errorFoto == false && $errorDetalle == false && $errorPrecio == false){
       $producto->color = $rec['color'];
       $producto->talle = $rec['talle'];
+      $producto->categoria_id = $rec['categoria'];
       $producto->user_id = $usuarioLogeado->id;
       $producto->save();
       return redirect("/perfil");

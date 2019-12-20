@@ -62,6 +62,19 @@
         <option value="s">small</option>
       </select>
     </p>
+    <p>
+      <label for="categoria">Categoria</label><br>
+      <select class="" name="categoria" id="categoria">
+        <option value=""></option>
+        <option value="1">Remera</option>
+        <option value="2">Campera</option>
+        <option value="3">camisa</option>
+        <option value="4">accesorios</option>
+        <option value="5">trajes</option>
+        <option value="6">indumentaria</option>
+        <option value="7">cinturones</option>
+      </select>
+    </p>
 
     <h5>
       <button type="submit" class="btn btn-dark carrito" name="button">Crear Venta</button>

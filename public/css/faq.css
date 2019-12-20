@@ -16,6 +16,9 @@
 ul.nav li a{
   color: black;
 }
+ul{
+  list-style: none;
+}
 .pos-f-t{
   position: relative;
   display:block;
@@ -86,6 +89,11 @@ div.cuerpo{
 
 }
 @media only screen and (min-width: 1024px){
+  ul.nav li a {
+      color: black;
+      font-size: 17px;
+      float: left;
+  }
   .pos-f-t{
 
     display:none;
@@ -114,4 +122,26 @@ div.cuerpo{
     position: relative;
     right: 47%;
   }
+  a.dropdown-toggle{
+    position: relative;
+    left: 700px;
+    float: right;
+    width: 200px;
+  }
+}
+.navbar-dark .navbar-toggler {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 0 auto;
+    background-color: #ffad5b;
+}
+.navbar-dark .navbar-toggler-icon{
+  background-color: #ffad5b;
+}
+.navbar{
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }

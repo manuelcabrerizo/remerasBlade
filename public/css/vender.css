@@ -1,4 +1,8 @@
-
+ul.nav li a {
+    color: black;
+    font-size: 17px;
+    float: left;
+}
 div.cuerpo {
   margin: 0 auto;
   width: 50%;
@@ -18,4 +22,51 @@ div.cuerpo {
 
 .carrito{
   background-color: #ffad5b;
+}
+.navbar-dark .navbar-toggler {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 0 auto;
+    background-color: #ffad5b;
+}
+.navbar-dark .navbar-toggler-icon{
+  background-color: #ffad5b;
+}
+.navbar{
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+@media (min-width: 375px) and (max-width: 768px){
+
+  div.cuerpo {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 870px;
+    overflow: hidden;
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 10px;
+    border-radius: 15px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+  input{
+    background-color: #ffad5b;
+    width: 200px;
+  }
+  textarea{
+    background-color: #ffad5b;
+    width: 200px;
+  }
+  select{
+    background-color: #ffad5b;
+  }
 }

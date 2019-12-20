@@ -1,3 +1,8 @@
+ul.nav li a {
+    color: black;
+    font-size: 17px;
+    float: left;
+}
 .cuerpo{
   width: 80%;
   margin: 0 auto;
@@ -63,4 +68,116 @@
 }
 .carrito{
   background-color: #ffad5b;
+}
+
+@media (max-width: 1023px){
+  .tarjetas{
+    background-color: white;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+  .tarjeta1{
+    background-color: white;
+    margin: 0 auto;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+  }
+  .usar{
+    position: relative;
+    left: 50%;
+  }
+  .cuerpo{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .cadaP {
+    position: relative;
+    left: 15%;
+    background-color: white;
+    position: relative;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 30px;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+}
+@media (max-width: 400px){
+  .tarjeta1{
+    background-color: white;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+  }
+  .usar{
+    position: relative;
+    left: 25%;
+  }
+  .cadaP {
+    position: relative;
+    left: 15%;
+    background-color: white;
+    position: relative;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 30px;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+}
+.navbar-dark .navbar-toggler {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 0 auto;
+    background-color: #ffad5b;
+}
+.navbar-dark .navbar-toggler-icon{
+  background-color: #ffad5b;
+}
+.navbar{
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }

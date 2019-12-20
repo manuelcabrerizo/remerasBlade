@@ -86,6 +86,11 @@ class datosController extends Controller
         $compra->user_id = $compraUsuario->id;
         $compra->producto_id = $productoCarro->id;
         $compra->save();
+        foreach ($carrito as $productoC){
+          if($productoCarro->id == $productoC->producto_id && $usuarioLogeado->id == $productoC->user_id){
+            $productoC->delete();
+          }
+        }
       }
       return redirect('home');
     }

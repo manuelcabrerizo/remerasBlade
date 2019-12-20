@@ -83,7 +83,6 @@ a{
   width: 350px;
   height: 600px;
   margin-top: 40px;
-  margin-left: 40px;
   padding-left: 15px;
   padding-top: 15px;
   float: left;
@@ -102,7 +101,94 @@ a{
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
+@media (min-width: 375px) and (max-width: 767px){
+  .botonEliminar{
+    position: relative;
+    float: left;
+    top: 100px;
+    right: 200px;
+  }
+  .imagen{
+    position: relative;
+    right: 90px;
+    bottom: 10px;
+  }
+  .perfil{
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 600px;
+    margin-top: 40px;
+    padding-left: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+  .logoPerfil img {
+    border-radius: 15px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 10px;
+}
+}
+@media (min-width: 768px) and (max-width: 1023px){
+  .perfil{
+    display: block;
+    background-color: white;
+    width: 90%;
+    height: 600px;
+    margin-top: 40px;
+    margin-left: 40px;
+    padding-left: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+  .compra{
+    margin-left: 40px;
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: white;
+    display: block;
+    margin-top: 40px;
+    margin-right: 0px;
+    border-radius: 15px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+  }
+  .cuerpo {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      left: 0%;
+  }
+  .imagen{
+    position: relative;
+    margin-left: 471px;
+  }
+}
 @media only screen and (min-width: 1024px){
+  ul.nav li a {
+      color: black;
+      font-size: 17px;
+      float: left;
+  }
   .perfil{
     display: block;
     background-color: white;
@@ -130,15 +216,34 @@ a{
       overflow: hidden;
       left: 0%;
   }
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px){
-  .cuerpo {
-      position: relative;
-      width: 48%;
-      margin: 0 auto;
-      overflow: hidden;
-      left: 0%;
+  a.dropdown-toggle{
+    position: relative;
+    left: 700px;
+    float: right;
+    width: 200px;
   }
+}
+.navbar-dark .navbar-toggler {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 0 auto;
+    background-color: #ffad5b;
+}
+.navbar-dark .navbar-toggler-icon{
+  background-color: #ffad5b;
+}
+.navbar{
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.texto{
+  overflow: hidden;
+}
+.flotarBoton{
+  position: relative;
+  float: left;
+  margin-right: 10px;
 }

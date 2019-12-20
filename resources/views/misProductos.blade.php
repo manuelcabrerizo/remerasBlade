@@ -27,7 +27,7 @@
 
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
-                        <button class="btn btn-dark carrito2" type="submit" name="editar" value="{{$producto["id"]}}">Editar</button>
+                        <button class="btn btn-dark carrito2 flotarBoton" type="submit" name="editar" value="{{$producto["id"]}}">Editar</button>
                       </form>
                       <form class="" action="/misProductos" method="post">
                         {{csrf_field()}}
