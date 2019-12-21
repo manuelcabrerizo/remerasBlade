@@ -1,26 +1,19 @@
 @section('footer')
   <footer class="page-footer font-small mdb-color pt-4" ;>
-
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
-
       <!-- Footer links -->
       <div class="row text-center text-md-left mt-3 pb-3">
-
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-            consectetur
-            adipisicing elit.</p>
+          <h6 class="text-uppercase mb-4 font-weight-bold">Ichiba</h6>
+          <p>Pagina web dedicada a la venta de productos de anime, con envios a todo el país </p>
         </div>
         <!-- Grid column -->
-
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+        {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Productos</h6>
           <p>
             <a href="#!">MDBootstrap</a>
           </p>
@@ -33,69 +26,57 @@
           <p>
             <a href="#!">Bootstrap Angular</a>
           </p>
-        </div>
+        </div> --}}
         <!-- Grid column -->
-
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+          <h6 class="text-uppercase mb-4 font-weight-bold">Links Utiles</h6>
           <p>
-            <a href="#!">Your Account</a>
+            <a href="/perfil">Tu Perfil</a>
           </p>
           <p>
-            <a href="#!">Become an Affiliate</a>
+            <a href="/register">Asociate a nuestra pagina</a>
           </p>
           <p>
-            <a href="#!">Shipping Rates</a>
+            <a href="/faq">Preguntas Frecuentes</a>
           </p>
           <p>
-            <a href="#!">Help</a>
+            <a href="/contacto">Ayuda</a>
           </p>
         </div>
-
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contactos</h6>
           <p>
-            <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <i class="fas fa-home mr-3"></i> Mendoza, Aristides Villanueva 601, ARG</p>
           <p>
-            <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            <i class="fas fa-envelope mr-3"></i> ichiba@gmail.com</p>
           <p>
-            <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <i class="fas fa-phone mr-3"></i> 02612181962</p>
           <p>
-            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <i class="fas fa-print mr-3"></i> 02614295424</p>
         </div>
         <!-- Grid column -->
-
       </div>
       <!-- Footer links -->
-
       <hr>
-
       <!-- Grid row -->
       <div class="row d-flex align-items-center">
-
         <!-- Grid column -->
         <div class="col-md-7 col-lg-8">
-
           <!--Copyright-->
-          <p class="text-center text-md-left">© 2018 Copyright:
+          {{-- <p class="text-center text-md-left">© 2018 Copyright:
             <a href="https://mdbootstrap.com/education/bootstrap/">
               <strong> MDBootstrap.com</strong>
             </a>
-          </p>
-
+          </p> --}}
         </div>
         <!-- Grid column -->
-
         <!-- Grid column -->
         <div class="col-md-5 col-lg-4 ml-lg-0">
-
           <!-- Social buttons -->
           <div class="text-center text-md-right">
             <ul class="list-unstyled list-inline">
@@ -121,15 +102,11 @@
               </li>
             </ul>
           </div>
-
         </div>
         <!-- Grid column -->
-
       </div>
       <!-- Grid row -->
-
     </div>
     <!-- Footer Links -->
-
   </footer>
 @stop

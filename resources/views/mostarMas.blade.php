@@ -7,98 +7,18 @@
   <main class="contenedor">
   <nav class="botones">
 
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Remeras
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Camperas
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Camisas
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Accesorios
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Trajes
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Indumentaria
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cinturones
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
+        <?php foreach ($categorias as $categoria) {
+          ?>
+          <div class="dropdown">
+            <form class="" action="homeCategoria{{$categoria->id}}" method="get">
+              <button value="{{$categoria->id}}" class="btn btn-secondary dropdown-toggle boton7" type="submit" name="categoria" aria-haspopup="true" aria-expanded="false">{{$categoria->categoriaNombre}}</button>
+            </form>
+          </div>
+          <?php
+        } ?>
 
 
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle boton7" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ofertas
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-
-
-
-</nav>
+  </nav>
 @foreach ($productos as $producto)
   @if ($producto->id == $productoId)
     <div class="row no-gutters bg-light position-relative">

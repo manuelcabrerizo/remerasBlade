@@ -22,6 +22,7 @@
                         <link rel="stylesheet" href="{{asset('css/header1.css')}}">
                       </head>
                       <body>
+
                         <header class="cabeza2">
                           <div class="pos-f-t">
                             <div class="collapse" id="navbarToggleExternalContent">
@@ -38,7 +39,7 @@
                                       <a class="nav-link active"  href="contacto">Contactos</a>
                                     </li>
                                     <?php if(isset($usuarioLogeado)){ ?>
-                                  <li class="nav-item"> <a class="nav-link active" href="carrito"> su carrito</a> </li>
+                                  <li class="nav-item"> <a class="nav-link active" href="carrito"> Tu Carrito</a> </li>
                                   <?php   }else{
 
                                           } ?>
@@ -109,7 +110,8 @@
                                     <a class="nav-link active"  href="contacto">Contactos</a>
                                   </li>
                                   <?php if(isset($usuarioLogeado)){ ?>
-                                <li class="nav-item"> <a class="nav-link active" href="carrito"> su carrito</a> </li>
+                                <li class="nav-item"> <a class="nav-link active" href="carrito"> Tu Carrito</a> </li>
+
                                 <?php   }else{
 
                                         } ?>
@@ -144,14 +146,16 @@
                                             </li>
 
                                         @endguest
+                                        <li>  <form class="form-inline" action="/buscar" method="get">
+                                            {{csrf_field()}}
+                                              <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                          </form></li>
                               </ul>
 
 
-{{--
-                      <form class="form-inline">
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form> --}}
+
+                    
                       <!-- Navbar content -->
                             </nav>
 
@@ -178,8 +182,9 @@
                       <section class="foto">
                           @foreach ($productos as $producto)
                             <?php
-                            if($remeras == false && $camperas == false && $camisas == false && $accesorios == false && $trajes == false && $indumentaria == false && $cinturones == false){
+                            if($remeras == false && $camperas == false && $camisas == false && $accesorios == false && $trajes == false && $indumentaria == false && $cinturones == false && isset($buscar) == false){
                               ?>
+
                             <div class="card" >
                             <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
                             <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
@@ -206,7 +211,7 @@
                         ?>   </div>
                               </div> <?php
 
-                        }else{
+                        }elseif($remeras == true || $camperas == true || $camisas == true || $accesorios == true || $trajes == true || $indumentaria == true || $cinturones == true && isset($buscar) == false){
 
                               if($producto->categoria_id == $categoriaId){
                                 ?> <div class="card" >
@@ -235,6 +240,36 @@
                             ?>   </div>
                                   </div> <?php
                               }
+                            }else{
+                              if (strpos($producto->detalle, $buscar) !== false) {
+                                ?>
+
+                              <div class="card" >
+                              <img src="img/<?php echo $producto->foto;?>" class="card-img-top" alt="" width="242px" height="185px;" data-remera="remeraa1">
+                              <!-- <img class="special" src="img/img-nuevo.png" alt="plato nuevo"> -->
+                              <div class="card-body">
+                                <h5 class="card-title">{{$producto["nombre"]}}</h5>
+                                <h6 class="card-text">${{$producto["precio"]}}</h6>
+                                <form class="" action="/producto{{$producto["id"]}}" method="get">
+                                  {{csrf_field()}}
+                                    <button type="submit" name="verMas" value="{{$producto["id"]}}" class="btn btn-dark carrito">Ver mas</button>
+                                </form>
+                                <?php if (isset($usuarioLogeado)){ ?>
+                                <form action="carrito" class="carro" method="post">
+                                  {{csrf_field()}}
+                                  <button type="submit" name="incrementar" value="{{$producto["id"]}}" class="btn btn-dark carrito">Carrito</button>
+                                </form>
+                                <?php }else {
+
+                                  ?>
+
+                                  <a class="btn btn-dark carrito" href="login" role="button">Carrito</a>
+                                  <?php
+
+                                }
+                          ?>   </div>
+                                </div> <?php
+                                }
                             } ?>
                           @endforeach
 

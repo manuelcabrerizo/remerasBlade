@@ -116,4 +116,44 @@ class HomeController extends Controller
       return view('home', $vac);
 
     }
+    public function buscar(Request $rec){
+      $usuarioLogeado = Auth::user();
+      $categorias = Categoria::all();
+      $productos = Remera::all();
+      $buscar = $rec["q"];
+        $remeras = false;
+        $camperas = false;
+        $camisas = false;
+        $accesorios = false;
+        $trajes = false;
+        $indumentaria = false;
+        $cinturones = false;
+        $vac = compact("usuarioLogeado", "productos", "categorias", "remeras", "camperas", "camisas", "accesorios", "trajes", "indumentaria", "cinturones", "categorias", "buscar");
+        return view('home', $vac);
+      }
+
+    
+      // $remeras = false;
+      // $camperas = false;
+      // $camisas = false;
+      // $accesorios = false;
+      // $trajes = false;
+      // $indumentaria = false;
+      // $cinturones = false;
+      // $q = $rec["q"];
+      // if($q != ""){
+      //   //futuro buscador
+      //   $vac = compact("usuarioLogeado", "productos", "categorias", "remeras", "camperas", "camisas", "accesorios", "trajes", "indumentaria", "cinturones");
+      //   return view('home', $vac);
+      // }
+
+      // function(){
+      //   $q=Input:: get(q);
+      //   if($q != ""){
+      //     $prod=productos:: where('detalle','LIKE','%'.$q.'%');
+      //     return "hola";
+      //   }
+      //   return "Sin resultados";
+      // });
+
 }

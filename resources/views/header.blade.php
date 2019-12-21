@@ -14,7 +14,7 @@
               <a class="nav-link active"  href="contacto">Contactos</a>
             </li>
             <?php if(isset($usuarioLogeado)){ ?>
-          <li class="nav-item"> <a class="nav-link active" href="carrito"> su carrito</a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="carrito"> Tu Carrito</a> </li>
           <?php   }else{
 
                   } ?>

@@ -16,7 +16,7 @@
            <div class="compra">
                 <div class="texto">
                     <h5>{{$productoCarro->nombre}}</h5>
-                    
+
                     <p>${{$productoCarro->precio}}</p>
                 </div>
                 <form class="botonEliminar" action="/eliminarCarrito" method="post">
@@ -31,7 +31,7 @@
          }
        }else {
          ?>
-         <div class="compra">No tienes productos en el carrito</div>
+         <div class="compra" style="padding-left: 30%">No tienes productos en el carrito</div>
          <?php
        }
       ?>

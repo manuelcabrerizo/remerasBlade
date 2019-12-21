@@ -6,6 +6,7 @@ use App\Carrito;
 use App\Remera;
 use App\Pregunta;
 use App\Respuesta;
+use App\Categoria;
 use Illuminate\Support\Facades\DB;
 class mostrarMasController extends Controller
 {
@@ -15,8 +16,9 @@ class mostrarMasController extends Controller
       $productos = Remera::all();
       $respuestas = Respuesta::all();
       $preguntas = Pregunta::all();
+      $categorias = Categoria::all();
       $productoId = $id;
-      $vac = compact("usuarioLogeado", "productos", "productoId", "preguntas", "respuestas", "usuarios");
+      $vac = compact("usuarioLogeado", "productos", "productoId", "preguntas", "respuestas", "usuarios", "categorias");
       return view("mostarMas", $vac);
     }
     public function mostarCarro(Request $rec){
